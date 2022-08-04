@@ -1,0 +1,26 @@
+<div class="container">
+<% for plate in @plates %>
+  <h1> Plate <%= @plates.index(plate) + 1 %> </h1>
+
+  <table border="3">
+    <tr style="border-width: 3px; border-color: black; height: 50px; min-width: 80px; text-align: center;">
+      <% for head in 0..@width %>
+        <th style="border-width: 3px; border-color: black; height: 50px; min-width: 80px; text-align: center;"><%= head %></th>
+      <% end %>
+    </tr>
+
+    <% for i in 0...@height %>
+      <tr style="border-width: 3px; border-color: black; height: 50px; min-width: 80px; text-align: center;">
+          <td style="border-width: 3px; border-color: black; height: 50px; min-width: 80px; text-align: center;"><%= i + 1 %></td>
+        <% for j in 0...@width %>
+            <td style="border-width: 3px; border-color: black; height: 50px; min-width: 80px; text-align: center; background-color: <%= plate[i][j].last unless plate[i][j].nil? %>;"> 
+              <%= plate[i][j].first unless plate[i][j].nil?  %>
+            </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <br><br><br>
+<% end %>
+</div>
+
